@@ -26,7 +26,6 @@ async function fetchCities() {
   // 1. Fetch cities using the Backend API and return the data
 
 }
-
 //Implementation of DOM manipulation to add cities
 function addCityToDOM(id, city, description, image) {
   let cityOb=document.getElementById("data");
@@ -34,8 +33,8 @@ function addCityToDOM(id, city, description, image) {
   var cityEle=document.createElement("div");
   cityEle.setAttribute("class","col");
 
-  cityEle.innerHTML=`<a href=/pages/adventures/?city=${id} id=${id}>
-  <div class="tile">
+  cityEle.innerHTML=`<a href="pages/adventures/?city=${id}"  id=${id}>
+    <div class="tile">
     <img src=${image} />
     <div class="tile-text text-center">
     <h4>${city}</h4>
@@ -47,5 +46,6 @@ function addCityToDOM(id, city, description, image) {
   // 1. Populate the City details and insert those details into the DOM
 
 }
+
 
 export { init, fetchCities, addCityToDOM };

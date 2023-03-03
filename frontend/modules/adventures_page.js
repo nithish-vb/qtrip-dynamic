@@ -3,6 +3,7 @@ import config from "../conf/index.js";
 
 //Implementation to extract city from query params
 function getCityFromURL(search) {
+  return search.slice(6,)
   // TODO: MODULE_ADVENTURES
   // 1. Extract the city id from the URL's Query Param and return it
 
@@ -10,6 +11,16 @@ function getCityFromURL(search) {
 
 //Implementation of fetch call with a paramterized input based on city
 async function fetchAdventures(city) {
+  console.log(city)
+  let advnarray;
+  try{
+  advnarray=await fetch(`${config.backendEndpoint}/adventures?city=${city}`)
+  advnarray=await advnarray.json()
+  }
+  catch(err){
+    return null
+  }
+  return advnarray
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
 
@@ -17,6 +28,30 @@ async function fetchAdventures(city) {
 
 //Implementation of DOM manipulation to add adventures for the given city from list of adventures
 function addAdventureToDOM(adventures) {
+  console.log(adventures[0])
+  adventures.forEach((key) => {
+  var obj=document.getElementById("data")
+  obj.setAttribute("class","row row-cols-1 row-cols-sm-2 row-cols-xl-4");
+  var advnEle=document.createElement("div");
+  advnEle.setAttribute("class","col ");
+  advnEle.innerHTML=` <a href="detail/?adventure=${key.id}" id=${key.id}>
+  
+  <div class="activity-card ">
+  <div class="category-banner">${key.category}</div>
+  <div>
+    <img class="activity-card img " src="${key.image}" height:"800"/></div>
+    <div class="card-footer  ">
+      <h4>${key.name} ${key.currency} ${key.costPerHead}</h4>
+      <p>Duration   ${key.duration} Hours<p>
+    </div>
+  </div>
+  </a>`
+
+
+obj.append(advnEle)
+    
+   });
+  
   // TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
 
@@ -25,7 +60,7 @@ function addAdventureToDOM(adventures) {
 //Implementation of filtering by duration which takes in a list of adventures, the lower bound and upper bound of duration and returns a filtered list of adventures.
 function filterByDuration(list, low, high) {
   // TODO: MODULE_FILTERS
-  // 1. Filter adventures based on Duration and return filtered list
+  // 1. Filter adventures based on Duration and return fitered list
 
 }
 

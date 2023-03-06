@@ -66,7 +66,6 @@ list.forEach((keys) => {
   }
 
 }); 
-console.log(arr)
 // TODO: MODULE_FILTERS
   // 1. Filter adventures based on Duration and return filtered list
   return arr
@@ -85,7 +84,6 @@ function filterByCategory(list, categoryList) {
   
   }); 
 });
-  console.log(arr)
   // TODO: MODULE_FILTERS
   // 1. Filter adventures based on their Category and return filtered list
 return arr;

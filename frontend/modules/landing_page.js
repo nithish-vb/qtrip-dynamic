@@ -26,7 +26,6 @@ async function fetchCities() {
   // 1. Fetch cities using the Backend API and return the data
 
 }
-//Implementation of DOM manipulation to add cities
 function addCityToDOM(id, city, description, image) {
   let cityOb=document.getElementById("data");
   cityOb.setAttribute("class","row row-cols-1 row-cols-sm-2 row-cols-xl-4");
@@ -42,9 +41,8 @@ function addCityToDOM(id, city, description, image) {
   </div>
   </div></a>`;
   cityOb.append(cityEle);
-  // TODO: MODULE_CITIES
-  // 1. Populate the City details and insert those details into the DOM
-
 }
-
-export { init, fetchCities, addCityToDOM };
+export { init,
+  fetchCities,
+  addCityToDOM, 
+};
